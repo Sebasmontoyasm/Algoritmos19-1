@@ -130,18 +130,14 @@ public class Algoritmos {
             if (vectorIzq[i] <= vectorDer[j]) {
                 arrayList.set(k, vectorIzq[i]);
 
-                if (vectorIzq[i] == vectorDer[j]) {
-                    System.out.println("cambio k[" + k + "]: " + vectorIzq[i] + " con el de [" + i + "]");
-                }
+                System.out.println("V["+k+"]: "+arrayList.get(k)+" cambio con el Vizq["+i+"]: "+vectorIzq[i]);
 
                 i++;
 
             } else {
                 arrayList.set(k, vectorDer[j]);
 
-                if (vectorIzq[i] == vectorDer[j]) {
-                    System.out.println("cambio k[" + k + "]: " + vectorDer[j] + " con el de [" + j + "]");
-                }
+                System.out.println("V["+k+"]: "+arrayList.get(k)+" cambio con el VDer["+j+"]: "+vectorDer[j]);
 
                 j++;
             }
@@ -414,4 +410,47 @@ public class Algoritmos {
 
         return i + 1;
     }
+    
+    public void MultiMatrices(int[] deno){
+        for (int i = 1; i < deno.length; i++) {
+            System.out.println("denominaciones: "+deno[i-1]+"x"+deno[i]);
+        }
+         int[] [] Table = new int[deno.length -1][deno.length -1];
+         
+        for (int i = 0; i < 10; i++) {
+            Table[i][i] = 0;
+        }
+        int j = Table.length-1;
+        int l;
+        int r;
+        int min;
+        
+        while(j == 0){
+            for (int i = 1; i < j-i; i++) {
+                if(Table[i - 1][i] == 0 && Table[i+1][i] == 0){
+                   l = deno[i-1]*deno[i];
+                   r = deno[i]*deno[i+1];
+                   
+                   Table[i][i] = l*r;
+                }
+                else if(Table[i-1][i] != 0 && Table[i+1][i] != 0){
+                    min =Math.min(Table[i-1][i],Table[i+1][i]);
+                    
+                    if(min == Table[i-1][i]){
+                        Table[i][i] = min * deno[i+1];
+                    }
+                    else{
+                        Table[i][i] = min * deno[i-1];
+                    }
+                }
+            }
+        }
+       
+       
+        
+    }
+    
+   
+    
+    
 }

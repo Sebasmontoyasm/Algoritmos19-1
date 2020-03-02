@@ -19,7 +19,7 @@ public class PruebaManual {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+      /**  
       //  int arr[] = { 12, 11, 13, 5, 6 }; 
         Algoritmos ob = new Algoritmos(); 
       //  ob.sort(arr); 
@@ -55,7 +55,11 @@ public class PruebaManual {
         vector2.add(2);
             
         ob.Counting(vector2);
-        
+        **/
+        Algoritmos ob = new Algoritmos();
+        int [] denominaciones = {5,2,4,5,8};
+        ob.MultiMatrices(denominaciones);
+      
     }
     
     /* A utility function to print array of size n*/
